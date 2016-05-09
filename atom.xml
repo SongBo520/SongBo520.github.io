@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Songbo blog</title>
-  <subtitle>more and more reading book</subtitle>
+  <title>Songbo&#39;s Blog</title>
+  <subtitle>More And More Reading Book</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>

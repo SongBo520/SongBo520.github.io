@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Songbo&#39;s Blog</title>
+  <title>about | Songbo&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="reading">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Songbo's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Songbo's Blog">
 <meta property="og:description" content="reading">
+<meta property="og:updated_time" content="2016-05-09T02:11:28.275Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Songbo's Blog">
+<meta name="twitter:title" content="about">
 <meta name="twitter:description" content="reading">
   
     <link rel="alternative" href="/atom.xml" title="Songbo&#39;s Blog" type="application/atom+xml">
@@ -30,13 +31,8 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
-      <style> .article { opacity: 0;} </style>
-  
   <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
   
   
       <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
@@ -47,7 +43,7 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: true,
+          isHome: false,
           isPost: false,
           isArchive: false,
           isTag: false,
@@ -237,13 +233,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-Hexo搭建个人博客详细过程" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/01/Hexo搭建个人博客详细过程/" class="article-date">
-      <time datetime="2016-05-01T12:13:17.000Z" itemprop="datePublished">2016-05-01</time>
+      <a href="/about/index.html" class="article-date">
+      <time datetime="2016-05-09T02:11:28.000Z" itemprop="datePublished">2016-05-09</time>
 </a>
     </div>
   
@@ -255,238 +249,93 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/01/Hexo搭建个人博客详细过程/">Hexo搭建个人博客详细过程</a>
+    <h1 class="article-title" itemprop="name">
+      about
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>##Hexo搭建个人博客详细过程##</p>
-<p>###1. 环境配置：###</p>
-<ol>
-<li>下载安装<a href="https://git-scm.com/download/" target="_blank" rel="external">git</a>;</li>
-</ol>
-<ol>
-<li>下载安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>; //最好安装稳定版的Node</li>
-</ol>
-<ol>
-<li>申请<a href="https://github.com/" target="_blank" rel="external">github</a>账户; //如果已有，请飘过此句</li>
-</ol>
-<p>###2. hexo安装：###</p>
-<ul>
-<li><p>新建一个文件夹用来保存本地博客文件,在该文件夹下执行：</p>
-<pre><code>npm install -g hexo-cli //npm包全局安装hexo，这个过程需要等待一段时间...
-</code></pre></li>
-<li><p>等上面执行完成后再执行：</p>
-<pre><code>hexo init &lt;folder&gt; //如果自己在外面新建好了文件夹，&lt;folder&gt;可以不要，下载hexo包
-
-cd &lt;folder&gt;//如果上面没有folder这句可以不要
-
-npm install//等待（漫长的）一段时间...
-</code></pre></li>
-<li><p>安装完成后可以执行下面命令：</p>
-<pre><code>hexo server
-</code></pre><p>  然后可以在浏览器中打开localhost:4000，就能看到你的本地静态blog网页了。</p>
-</li>
-</ul>
-<p>###3. 配置github，把代码托管到github上###</p>
-<ul>
-<li>首先登陆你的<a href="https://github.com/" target="_blank" rel="external">github</a>，然后新建一个仓库，名字最好是这样的格式：yourname.github.io (yourname指的是你github的name)。</li>
-</ul>
-<ul>
-<li><p>然后更改本地的_config.yml文件，用记事本（任意编辑器都可）打开，翻到最下面的deploy改为：</p>
-<pre><code>deploy:
-      type: git
-      repository: https://github.com/yourname/yourname.github.io.git
-      branch: master
-</code></pre></li>
-</ul>
-<ul>
-<li><p>然后在刚刚的下载好hexo文件夹中右键，git bush,在黑窗口中输入：</p>
-<pre><code>hexo generate
-
-//hexo g完成后再输入：
-
-hexo deploy
-</code></pre><p>  如果提示<strong>not found git错误</strong>：</p>
-</li>
-</ul>
-<pre><code>1. 首先检查本地的_config.yml文件格式是否正确，每个冒号后面有个空格，type是git而不是github，地址要输入正确
-2. 这些都正确如果还报错输入下面一行代码：
-
-        npm install hexo-deployer-git --save
-
-    然后再generate和deploy
-</code></pre><ul>
-<li><p>这些过程成功完成后就可以在你的仓库中看到你上传上的代码了，然后就可以访问<a href="#">yourname.github.io</a>看到你的个人博客页面了。这个看起来和你在本地localhost:4000看的页面是一样的，但是你可以在任何一台有网络的电脑上看到你的页面。</p>
-<pre><code>小提示：当你代码上传到github上之后，你立即访问的话可能会出现404错误，这个是正常的，大概等一段时间之后，快则一两分钟，慢则
-
-半个小时以上（看人品）。所以不用担心这个问题，只要代码上传到你的仓库了。
-</code></pre></li>
-</ul>
-<p>##参考：##</p>
-<ul>
-<li><p>Hexo<a href="https://hexo.io/docs/" target="_blank" rel="external">官方文档</a></p>
-</li>
-<li><p><a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">HEXO+Github,搭建属于自己的博客</a></p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-my-test" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/23/my-test/" class="article-date">
-      <time datetime="2016-03-23T12:13:17.000Z" itemprop="datePublished">2016-03-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+      <div class="article-info article-info-post">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/23/my-test/">my test</a>
-    </h1>
-  
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>测试发表一篇文章！！！</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/22/hello-world/" class="article-date">
-      <time datetime="2016-03-22T03:03:47.427Z" itemprop="datePublished">2016-03-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+              <style>
+    .article-meta { display: none; }
+    #container .article .article-title { padding-right: 0; }
+    .article-header {
+        padding: 0;
+        padding-top: 26px;
+        border-left: none;
+        text-align: center;
+    }
+    .article-header:hover { border-left: none; }
+    .article-title { font-size: 1.6em }
+    .article-entry hr { margin: 0;}
+    .article-meta,
+    #container .article-info-post.article-info { display: none;}
+    #container .article .article-title { padding: 0; }
+</style>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
+          
+        
       
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
+  
+    
+
+
   
 </article>
 
 
 
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"about　| Songbo's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
 
 
 
 
 
 
-  
-  
+
+    
+
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">

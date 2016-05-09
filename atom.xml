@@ -111,26 +111,4 @@ hexo deploy
     
   </entry>
   
-  <entry>
-    <title>my test</title>
-    <link href="http://yoursite.com/2016/03/23/my-test/"/>
-    <id>http://yoursite.com/2016/03/23/my-test/</id>
-    <published>2016-03-23T12:13:17.000Z</published>
-    <updated>2016-03-23T12:14:07.553Z</updated>
-    
-    <content type="html">&lt;p&gt;测试发表一篇文章！！！&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;测试发表一篇文章！！！&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-      <category term="test" scheme="http://yoursite.com/tags/test/"/>
-    
-  </entry>
-  
 </feed>
